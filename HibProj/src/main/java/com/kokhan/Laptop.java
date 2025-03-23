@@ -1,9 +1,8 @@
 package com.kokhan;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 // @Embeddable - using when we don't want create table for class but we want that data from object will have in Entity another class in another table
 @Entity
@@ -15,8 +14,8 @@ public class Laptop {
     private String model;
     private int ram;
 
-    @ManyToOne
-    private Alien alien;
+    @ManyToMany(mappedBy = "laptops")
+    private List<Alien> aliens;
 
     public int getLid() {
         return lid;
@@ -50,12 +49,12 @@ public class Laptop {
         this.ram = ram;
     }
 
-    public Alien getAlien() {
-        return alien;
+    public List<Alien> getAliens() {
+        return aliens;
     }
 
-    public void setAlien(Alien alien) {
-        this.alien = alien;
+    public void setAliens(List<Alien> aliens) {
+        this.aliens = aliens;
     }
 
     @Override

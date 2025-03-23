@@ -4,10 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -24,14 +22,38 @@ public class Main {
         l2.setModel("Mac");
         l2.setRam(32);
 
+        Laptop l3 = new Laptop();
+        l3.setLid(3);
+        l3.setBrand("Acer");
+        l3.setModel("Nitro 5");
+        l3.setRam(8);
+
         Alien a1 = new Alien();
         a1.setAid(101);
         a1.setAname("Vladyslav");
         a1.setTech("Java");
-        a1.setLaptops(Arrays.asList(l1,l2));
 
-        l1.setAlien(a1);
-        l2.setAlien(a1);
+
+        Alien a2 = new Alien();
+        a2.setAid(102);
+        a2.setAname("Vasyl");
+        a2.setTech("JavaScript");
+
+
+        Alien a3 = new Alien();
+        a3.setAid(103);
+        a3.setAname("Roman");
+        a3.setTech("Python");
+
+
+        a1.setLaptops(Arrays.asList(l1,l2));
+        a2.setLaptops(Arrays.asList(l2,l3));
+        a3.setLaptops(Arrays.asList(l1));
+
+        l1.setAliens(Arrays.asList(a1,a3));
+        l2.setAliens(Arrays.asList(a1,a2));
+        l3.setAliens(Arrays.asList(a2));
+
 
 
 
@@ -48,14 +70,16 @@ public class Main {
 
         session.persist(l1);
         session.persist(l2);
+        session.persist(l3);
+
         session.persist(a1);
-
-
+        session.persist(a2);
+        session.persist(a3);
 
         transaction.commit();
 
-        Alien a2 = session.get(Alien.class,101);
-        System.out.println(a2);
+        Alien a5 = session.get(Alien.class,102);
+        System.out.println(a5);
 
         session.close();
         sf.close();
