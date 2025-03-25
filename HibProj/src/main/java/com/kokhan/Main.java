@@ -2,87 +2,35 @@ package com.kokhan;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import java.util.Arrays;
-
 
 public class Main {
     public static void main(String[] args) {
 
-        Laptop l1 = new Laptop();
-        l1.setLid(1);
-        l1.setBrand("Asus");
-        l1.setModel("Roq");
-        l1.setRam(16);
-
-        Laptop l2 = new Laptop();
-        l2.setLid(2);
-        l2.setBrand("Apple");
-        l2.setModel("Mac");
-        l2.setRam(32);
-
-        Laptop l3 = new Laptop();
-        l3.setLid(3);
-        l3.setBrand("Acer");
-        l3.setModel("Nitro 5");
-        l3.setRam(8);
-
-        Alien a1 = new Alien();
-        a1.setAid(101);
-        a1.setAname("Vladyslav");
-        a1.setTech("Java");
-
-
-        Alien a2 = new Alien();
-        a2.setAid(102);
-        a2.setAname("Vasyl");
-        a2.setTech("JavaScript");
-
-
-        Alien a3 = new Alien();
-        a3.setAid(103);
-        a3.setAname("Roman");
-        a3.setTech("Python");
-
-
-        a1.setLaptops(Arrays.asList(l1,l2));
-        a2.setLaptops(Arrays.asList(l2,l3));
-        a3.setLaptops(Arrays.asList(l1));
-
-        l1.setAliens(Arrays.asList(a1,a3));
-        l2.setAliens(Arrays.asList(a1,a2));
-        l3.setAliens(Arrays.asList(a2));
-
-
-
 
         SessionFactory sf = new Configuration()
-                .addAnnotatedClass(com.kokhan.Alien.class)
                 .addAnnotatedClass(com.kokhan.Laptop.class)
-                .configure()
+                .configure("hibernate.cfg.xml")
                 .buildSessionFactory();
 
         Session session = sf.openSession();
 
+        Laptop l1 = session.get(Laptop.class,2);
+        System.out.println(l1);
 
-        Transaction transaction = session.beginTransaction();
-
-        session.persist(l1);
-        session.persist(l2);
-        session.persist(l3);
-
-        session.persist(a1);
-        session.persist(a2);
-        session.persist(a3);
-
-        transaction.commit();
-
-        Alien a5 = session.get(Alien.class,102);
-        System.out.println(a5);
 
         session.close();
+
+        Session session1 = sf.openSession();
+
+        Laptop l2 = session1.get(Laptop.class,2);
+        System.out.println(l2);
+
+        session1.close();
+
         sf.close();
+    }
+}
 
 //        Student s1 = new Student();
 //        s1.setrollNo(100);
@@ -102,5 +50,39 @@ public class Main {
 //Transaction transaction = session.beginTransaction(); // need to change our data in DB
 //session.persist(s1);              // save data (create!)
 //transaction.commit();   //commit our changes
-    }
-}
+
+
+
+
+//        Session session1 = sf.openSession();
+//        Alien a5 = session1.get(Alien.class, 101);
+//         System.out.println(a5); // if we don't use sout that's lazy fetching and we fetch the data from Alien and that's all
+// but if we use it - it's called Eager fetching and we fetch data from alien and laptop
+// Also we can use  @OneToMany(fetch = FetchType.EAGER) , by default FetchType.LAZY
+//        session1.close();
+
+
+//select * from laptop where ram=32 -> SQL
+//from Laptop where ram = 32 -> HQL
+
+//String brand = "Asus";
+//
+//
+//Query query = session.createQuery("select brand, model from Laptop where brand like ?1");
+//        query.setParameter(1,brand);
+//
+//List<Object[]> laptops = query.getResultList();
+//
+//        for (Object[] data : laptops){
+//        System.out.println((String)data[0] + " " + (String) data[1]);
+//        }
+
+// Laptop l1 = session.get(Laptop.class,4);
+//        System.out.println(laptops);
+
+
+// 
+//        Laptop laptop = session.get(Laptop.class,2);
+//        Laptop laptop = session.byId(Laptop.class).getReference(2);
+//        Laptop laptop = session.load(Laptop.class,2);
+// System.out.println(laptop);
