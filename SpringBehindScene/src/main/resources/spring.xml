@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--     <bean id="alien" class="com.kokhan.Alien" scope="prototype">     </bean>  -->
+    <bean id="alien" class="com.kokhan.Alien" autowire="byType">
+        <property name="age" value="21"/>
+        <property name="comp">
+            <bean id="comp1" class="com.kokhan.Laptop" primary="true">
+            </bean>
+        </property>
+
+        <!--        <constructor-arg name="laptop" ref="laptop1"/>-->
+        <!--        <constructor-arg name="age" value="21"/>-->
+
+        <!--        <constructor-arg type="com.kokhan.Laptop" ref="laptop1"/>-->
+        <!--        <constructor-arg type="int" value="21"/>-->
+
+        <!--        <constructor-arg index="1" ref="laptop1"/>-->
+        <!--        <constructor-arg index="0" value="21"/>-->
+
+
+    </bean>
+
+<!--    <bean id="comp1" class="com.kokhan.Laptop" primary="true">-->
+<!--    </bean>-->
+
+<!--    <bean class="com.kokhan.Desktop" lazy-init="true">-->
+<!--    </bean>-->
+
+</beans>
+
