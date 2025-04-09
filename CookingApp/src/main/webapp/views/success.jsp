@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page import="com.kokhan.CookingApp.model.DishPost" %>
-<%@ page import="java.lang.String" %>
 <%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +10,8 @@
 
     <title>Recipe Details</title>
 
+    <!-- Add Bootstrap CSS link -->
+
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -18,13 +19,13 @@
             crossorigin="anonymous">
     <style>
         .card {
-            border: 2px solid #343a40;
-            background-color: #f8f9fa;
+            border: 2px solid #343a40; /* Dark border color */
+            background-color: #f8f9fa; /* Light background color */
             margin-bottom: 20px;
         }
     </style>
 
-    <link rel="stylesheet" type="text/css" href="../../com/kokhan/CookingApp/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -54,7 +55,7 @@
 </nav>
 
 <%
-    DishPost myDishPost = (DishPost) request.getAttribute("DishPost");
+    DishPost myDishPost = (DishPost) request.getAttribute("dishPost");
 %>
 
 <div class="container mt-5">
@@ -63,14 +64,14 @@
         <div class="col-md-6">
             <div class="card border-dark bg-dark text-white">
                 <div class="card-body">
-                    <h5 class="card-title"><%= myDishPost.getPostProfile() %></h5>
+                    <h5 class="card-title"><%= myDishPost.getDishName() %></h5>
                     <p class="card-text">
                         <strong>Description & Ingredients:</strong>
                         <%= myDishPost.getPostDesc() %>
                     </p>
                     <p class="card-text">
                         <strong>Cooking Time:</strong>
-                        <%= myDishPost.getReqCookingTime() %> minutes
+                        <%= myDishPost.getCookingTime() %> minutes
                     </p>
                     <p class="card-text">
                         <strong>Dish Type(s):</strong>

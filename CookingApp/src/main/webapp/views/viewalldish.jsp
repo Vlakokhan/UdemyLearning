@@ -23,9 +23,8 @@
             margin-bottom: 20px;
         }
     </style>
-
-    <link rel="stylesheet" type="text/css" href="../../com/kokhan/CookingApp/style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style1.css"></head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
@@ -41,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="viewallrecipes">All Recipes</a></li>
+                <li class="nav-item"><a class="nav-link" href="viewalldish">All Recipes</a></li>
                 <li class="nav-item"><a class="nav-link" href="www.linkedin.com/in/vladyslavkokhan">Contact</a></li>
             </ul>
         </div>
@@ -52,23 +51,23 @@
     <h2 class="mb-4 text-center font-weight-bold">Recipe List</h2>
 
     <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
-        <c:forEach var="dishPost" items="${dishPost}">
+        <c:forEach var="postDishes" items="${postDishes}">
             <div class="col">
                 <div class="card border-dark bg-dark text-white">
                     <div class="card-body">
-                        <h5 class="card-title">${dishPost.postProfile}</h5>
+                        <h5 class="card-title">${postDishes.dishName}</h5>
                         <p class="card-text">
                             <strong>Description & Ingredients:</strong>
-                                ${dishPost.postDesc}
+                                ${postDishes.postDesc}
                         </p>
                         <p class="card-text">
                             <strong>Cooking Time:</strong>
-                                ${dishPost.reqExperience} minutes
+                                ${postDishes.cookingTime} minutes
                         </p>
                         <p class="card-text">
                             <strong>Dish Type(s):</strong>
                         <ul>
-                            <c:forEach var="dish" items="${dishPost.postDishType}">
+                            <c:forEach var="dish" items="${postDishes.postDishType}">
                                 <li>${dish}</li>
                             </c:forEach>
                         </ul>

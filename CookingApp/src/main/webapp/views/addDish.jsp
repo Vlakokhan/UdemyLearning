@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="viewallrecipes">All Recipes</a></li>
+                <li class="nav-item"><a class="nav-link" href="viewalldish">All Recipes</a></li>
                 <li class="nav-item"><a class="nav-link" href="www.linkedin.com/in/vladyslavkokhan">Contact</a></li>
             </ul>
         </div>
@@ -46,24 +46,23 @@
                     <h2 class="mb-3 text-center fs-3 font-weight-bold">Add a New Recipe</h2>
                     <form action="handleForm" method="post">
                         <div class="mb-1">
-                            <label for="postId" class="form-label">Recipe ID</label>
-                            <input type="text" class="form-control" id="postId"
-                                   name="postId" required>
+                            <label for="recipeId" class="form-label">Recipe ID</label>
+                            <input type="text" class="form-control" id="recipeId"
+                                   name="recipeId" required>
                         </div>
 
                         <div class="mb-1">
-                            <label for="postProfile" class="form-label">Dish Name</label>
-                            <input type="text" class="form-control" id="postProfile" name="postProfile" required>
+                            <label for="dishName" class="form-label">Dish Name</label>
+                            <input type="text" class="form-control" id="dishName" name="dishName" required>
                         </div>
-
                         <div class="mb-1">
                             <label for="postDesc" class="form-label">Description & Ingredients</label>
                             <textarea class="form-control" id="postDesc" name="postDesc" rows="3" required></textarea>
                         </div>
 
                         <div class="mb-1">
-                            <label for="reqCookingTime" class="form-label">Cooking Time (minutes)</label>
-                            <input type="number" class="form-control" id="reqCookingTime" name="reqCookingTime" required>
+                            <label for="cookingTime" class="form-label">Cooking Time (minutes)</label>
+                            <input type="number" class="form-control" id="cookingTime" name="cookingTime" required>
                         </div>
 
                         <div class="mb-2">
@@ -89,7 +88,20 @@
                                 <option value="Rice Dish">Rice Dish</option>
                                 <option value="Seafood">Seafood</option>
                                 <option value="BBQ">BBQ</option>
+                                <option value="Appetizer">Appetizer</option>
+                                <option value="Main Course">Main Course</option>
+                                <option value="Side Dish">Side Dish</option>
+                                <option value="Street Food">Street Food</option>
+                                <option value="Slow Cooked">Slow Cooked</option>
+                                <option value="Air Fryer">Air Fryer</option>
+                                <option value="Low Carb">Low Carb</option>
+                                <option value="High Protein">High Protein</option>
+                                <option value="Comfort Food">Comfort Food</option>
+                                <option value="Holiday Special">Holiday Special</option>
+                                <option value="Quick & Easy">Quick & Easy</option>
+                                <option value="One Pot">One Pot</option>
                             </select>
+
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit Recipe</button>

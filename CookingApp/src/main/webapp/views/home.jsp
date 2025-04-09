@@ -11,7 +11,7 @@
           rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="style1.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
                     <a class="nav-link" href="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="viewallrecipes">All Recipes</a>
+                    <a class="nav-link" href="viewalldish">All Recipes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="www.linkedin.com/in/vladyslavkokhan">Contact</a>
@@ -47,7 +47,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body text-center">
-                    <a href="/viewallrecipes" class="btn btn-success btn-lg">View All Recipes</a>
+                    <a href="viewalldish" class="btn btn-success btn-lg">View All Recipes</a>
                 </div>
             </div>
         </div>
