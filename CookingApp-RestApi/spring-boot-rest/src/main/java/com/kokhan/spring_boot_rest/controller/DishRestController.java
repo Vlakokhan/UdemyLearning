@@ -1,4 +1,4 @@
-package com.kokhan.spring_boot_rest;
+package com.kokhan.spring_boot_rest.controller;
 
 import com.kokhan.spring_boot_rest.model.DishPost;
 import com.kokhan.spring_boot_rest.service.DishService;
